@@ -38,14 +38,18 @@ public class ProjectService {
         return projectRepository.findAll();
     }
 
+    public List<Project> getProjectsByProfileId(Long profileId){
+        Profile profile = profileRepository.findById(profileId).orElseThrow(() -> new ResourceNotFoundException("Id not found."));
+        return projectRepository.findByProfile(profile);
+    }
+
     public Project updateProject(Project updatedProject, Long id){
         Project project = projectRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Id not found."));
-        project.setProfile(updatedProject.getProfile());
         project.setImg(updatedProject.getImg());
         project.setDesc(updatedProject.getDesc());
         project.setName(updatedProject.getName());
         project.setRepo(updatedProject.getRepo());
-        return updatedProject;
+        return project;
     }
 
     public String deleteProject(Long id){

@@ -39,11 +39,15 @@ public class HardService {
         return hardRepository.findAll();
     }
 
+    public List<Hard> getHardsByProfileId(Long profileId){
+        Profile profile = profileRepository.findById(profileId).orElseThrow(() -> new ResourceNotFoundException("Id not found."));
+        return hardRepository.findByProfile(profile);
+    }
+
     public Hard updateHard(Hard updatedHard, Long id){
         Hard hard = hardRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Id not found."));
-        hard.setProfile(updatedHard.getProfile());
         hard.setSkillname(updatedHard.getSkillname());
-        return updatedHard;
+        return hard;
     }
 
     public String deleteHard(Long id){

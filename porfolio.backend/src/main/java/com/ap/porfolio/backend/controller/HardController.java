@@ -1,3 +1,4 @@
+
 package com.ap.porfolio.backend.controller;
 
 import com.ap.porfolio.backend.model.Hard;
@@ -26,6 +27,12 @@ public class HardController {
     @GetMapping
     public ResponseEntity<List<Hard>> getHards(){
         List<Hard> hards = hardService.getHards();
+        return new ResponseEntity<>(hards, HttpStatus.OK);
+    }
+
+    @GetMapping("/list/{profileId}")
+    public ResponseEntity<List<Hard>> getHardsByProfileId(@PathVariable Long profileId){
+        List<Hard> hards = hardService.getHardsByProfileId(profileId);
         return new ResponseEntity<>(hards, HttpStatus.OK);
     }
 

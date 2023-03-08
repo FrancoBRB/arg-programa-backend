@@ -1,5 +1,6 @@
 package com.ap.porfolio.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
@@ -89,6 +90,5 @@ public class Profile {
     public void setPhoto(String photo) {
         this.photo = photo;
     }
-
 
 }

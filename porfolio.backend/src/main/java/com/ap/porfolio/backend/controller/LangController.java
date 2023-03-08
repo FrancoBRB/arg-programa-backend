@@ -30,6 +30,12 @@ public class LangController {
         return new ResponseEntity<>(langs, HttpStatus.OK);
     }
 
+    @GetMapping("/list/{profileId}")
+    public ResponseEntity<List<Lang>> getLangsByProfileId(@PathVariable Long profileId){
+        List<Lang> langs = langService.getLangsByProfileId(profileId);
+        return new ResponseEntity<>(langs, HttpStatus.OK);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<Lang> updateLang(@PathVariable Long id, @RequestBody Lang updatedLang){
         Lang lang = langService.updateLang(updatedLang, id);

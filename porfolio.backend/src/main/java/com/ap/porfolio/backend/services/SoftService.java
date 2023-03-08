@@ -38,12 +38,16 @@ public class SoftService {
         return softRepository.findAll();
     }
 
+    public List<Soft> getSoftsByProfileId(Long profileId){
+        Profile profile = profileRepository.findById(profileId).orElseThrow(() -> new ResourceNotFoundException("Id not found."));
+        return softRepository.findByProfile(profile);
+    }
+
     public Soft updateSoft(Soft updatedSoft, Long id){
         Soft soft = softRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Id not found."));
-        soft.setProfile(updatedSoft.getProfile());
         soft.setPorcentage(updatedSoft.getPorcentage());
         soft.setSkillname(updatedSoft.getSkillname());
-        return updatedSoft;
+        return soft;
     }
 
     public String deleteSoft(Long id){

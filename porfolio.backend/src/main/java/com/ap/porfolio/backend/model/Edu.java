@@ -14,7 +14,7 @@ public class Edu {
     private String establishment;
 
     @Column(name = "career", nullable = false)
-    private Long career;
+    private String career;
 
     @Column(name= "date-ini", nullable = false)
     private Date dateIni;
@@ -31,7 +31,7 @@ public class Edu {
 
     public Edu() {}
 
-    public Edu(Long id, String establishment, Long career, Date dateIni, Date dateFin, String img) {
+    public Edu(String establishment, String career, Date dateIni, Date dateFin, String img) {
         this.establishment = establishment;
         this.career = career;
         this.dateIni = dateIni;
@@ -51,11 +51,11 @@ public class Edu {
         this.establishment = establishment;
     }
 
-    public Long getCareer() {
+    public String getCareer() {
         return career;
     }
 
-    public void setCareer(Long career) {
+    public void setCareer(String career) {
         this.career = career;
     }
 

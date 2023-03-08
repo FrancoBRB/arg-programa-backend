@@ -30,6 +30,12 @@ public class SoftController {
         return new ResponseEntity<>(softs, HttpStatus.OK);
     }
 
+    @GetMapping("/list/{profileId}")
+    public ResponseEntity<List<Soft>> getSoftsByProfileId(@PathVariable Long profileId){
+        List<Soft> softs = softService.getSoftsByProfileId(profileId);
+        return new ResponseEntity<>(softs, HttpStatus.OK);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<Soft> updateSoft(@PathVariable Long id, @RequestBody Soft updatedSoft){
         Soft soft = softService.updateSoft(updatedSoft, id);

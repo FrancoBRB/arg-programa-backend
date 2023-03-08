@@ -35,15 +35,19 @@ public class EduService {
         return eduRepository.findAll();
     }
 
+    public List<Edu> getEdusByProfileId(Long profileId){
+        Profile profile = profileRepository.findById(profileId).orElseThrow(() -> new ResourceNotFoundException("Id not found."));
+        return eduRepository.findByProfile(profile);
+    }
+
     public Edu updateEdu(Edu updatedEdu, Long id){
         Edu edu = eduRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Id not found."));
-        edu.setProfile(updatedEdu.getProfile());
         edu.setCareer(updatedEdu.getCareer());
         edu.setImg(updatedEdu.getImg());
         edu.setEstablishment(updatedEdu.getEstablishment());
         edu.setDateFin(updatedEdu.getDateFin());
         edu.setDateIni(updatedEdu.getDateIni());
-        return updatedEdu;
+        return edu;
     }
 
     public String deleteEdu(Long id){

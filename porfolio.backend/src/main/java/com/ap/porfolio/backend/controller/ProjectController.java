@@ -29,6 +29,12 @@ public class ProjectController {
         return new ResponseEntity<>(projects, HttpStatus.OK);
     }
 
+    @GetMapping("/list/{profileId}")
+    public ResponseEntity<List<Project>> getProjectsByProfileId(@PathVariable Long profileId){
+        List<Project> projects = projectService.getProjectsByProfileId(profileId);
+        return new ResponseEntity<>(projects, HttpStatus.OK);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<Project> updateProject(@PathVariable Long id, @RequestBody Project updatedProject){
         Project project = projectService.updateProject(updatedProject, id);

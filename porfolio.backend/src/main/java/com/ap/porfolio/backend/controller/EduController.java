@@ -1,3 +1,4 @@
+
 package com.ap.porfolio.backend.controller;
 
 import com.ap.porfolio.backend.model.Edu;
@@ -26,6 +27,12 @@ public class EduController {
     @GetMapping
     public ResponseEntity<List<Edu>> getEdus(){
         List<Edu> edus = eduService.getEdus();
+        return new ResponseEntity<>(edus, HttpStatus.OK);
+    }
+
+    @GetMapping("/list/{profileId}")
+    public ResponseEntity<List<Edu>> getEdusByProfileId(@PathVariable Long profileId){
+        List<Edu> edus = eduService.getEdusByProfileId(profileId);
         return new ResponseEntity<>(edus, HttpStatus.OK);
     }
 

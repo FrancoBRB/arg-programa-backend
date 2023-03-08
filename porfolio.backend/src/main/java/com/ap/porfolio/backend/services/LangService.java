@@ -39,12 +39,16 @@ public class LangService {
         return langRepository.findAll();
     }
 
+    public List<Lang> getLangsByProfileId(Long profileId){
+        Profile profile = profileRepository.findById(profileId).orElseThrow(() -> new ResourceNotFoundException("Id not found."));
+        return langRepository.findByProfile(profile);
+    }
+
     public Lang updateLang(Lang updatedLang, Long id){
         Lang lang = langRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Id not found."));
         lang.setLangName(updatedLang.getLangName());
-        lang.setProfile(updatedLang.getProfile());
         lang.setPorcentage(updatedLang.getPorcentage());
-        return updatedLang;
+        return lang;
     }
 
     public String deleteLang(Long id){
