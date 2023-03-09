@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-//import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping(value = "api/v1/profiles")
@@ -55,6 +54,6 @@ public class ProfileController {
     @DeleteMapping("/{id}")
     public String deleteProfile(@PathVariable("id") Long id) {
         return profileService.deleteProfile(id);
-    } */
-
+    }
+    */
 }

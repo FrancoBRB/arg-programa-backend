@@ -46,10 +46,10 @@ public class ProfileService {
         profile.setEmail(updatedProfile.getEmail());
         profile.setPhoto(updatedProfile.getPhoto());
         profile.setPassword(updatedProfile.getPassword());
-        return updatedProfile;
+        return profile;
     }
-
-    /*public String deleteProfile(Long id) {
+    /*
+    public String deleteProfile(Long id) {
         Optional<Profile> optionalProfile = profileRepository.findById(id);
         if (optionalProfile.isPresent()) {
             profileRepository.deleteById(id);
@@ -57,6 +57,6 @@ public class ProfileService {
         } else {
             return "Id not found.";
         }
-    }*/
-
+    }
+    */
 }
