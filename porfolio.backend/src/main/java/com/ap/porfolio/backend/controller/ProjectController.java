@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "api/v1/projects")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ProjectController {
     private final ProjectService projectService;
 

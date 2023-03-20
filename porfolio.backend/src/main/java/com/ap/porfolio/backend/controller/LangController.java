@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "api/v1/languages")
+@CrossOrigin(origins = "http://localhost:4200")
 public class LangController {
     private final LangService langService;
 

@@ -5,7 +5,6 @@ import com.ap.porfolio.backend.exceptions.ResourceNotFoundException;
 import com.ap.porfolio.backend.model.Profile;
 import com.ap.porfolio.backend.repository.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,8 +22,6 @@ public class ProfileService {
     }
 
     public Profile addProfile(Profile profile){
-        String encodedPassword = new BCryptPasswordEncoder().encode(profile.getPassword());
-        profile.setPassword(encodedPassword);
         return profileRepository.save(profile);
     }
 
@@ -32,8 +29,8 @@ public class ProfileService {
         return profileRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Id not found."));
     }
 
-    public Profile getProfileByEmail(String email){
-        return profileRepository.findByEmail(email);
+    public Optional<Profile> getProfileById(Long id){
+        return profileRepository.findById(id);
     }
 
     public List<Profile> getProfiles(){
@@ -43,9 +40,10 @@ public class ProfileService {
     public Profile updateProfile(Profile updatedProfile, Long id){
         Profile profile = profileRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Id not found."));
         profile.setAbout(updatedProfile.getAbout());
-        profile.setEmail(updatedProfile.getEmail());
         profile.setPhoto(updatedProfile.getPhoto());
-        profile.setPassword(updatedProfile.getPassword());
+        profile.setCellphone(updatedProfile.getCellphone());
+        profile.setGithub(updatedProfile.getGithub());
+        profile.setLinkedin(updatedProfile.getLinkedin());
         return profile;
     }
     /*

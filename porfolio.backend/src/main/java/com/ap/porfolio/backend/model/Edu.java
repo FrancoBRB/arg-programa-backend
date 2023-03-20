@@ -19,7 +19,7 @@ public class Edu {
     @Column(name= "date-ini", nullable = false)
     private Date dateIni;
 
-    @Column(name= "date-fin", nullable = false)
+    @Column(name= "date-fin", nullable = true)
     private Date dateFin;
 
     @Column(name= "img", nullable = false)

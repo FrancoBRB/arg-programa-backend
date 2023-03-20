@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "api/v1/softskills")
+@CrossOrigin(origins = "http://localhost:4200")
 public class SoftController {
     private final SoftService softService;
 

@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "api/v1/profiles")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ProfileController {
     private final ProfileService profileService;
 
@@ -27,11 +28,6 @@ public class ProfileController {
     public ResponseEntity<Profile> getProfile(@PathVariable("id") Long id){
         Profile profile = profileService.getProfile(id);
         return new ResponseEntity<>(profile, HttpStatus.OK);
-    }
-
-    @GetMapping("/email/{email}")
-    public Profile getProfileByEmail(@PathVariable String email) {
-        return profileService.getProfileByEmail(email);
     }
 
     @PutMapping("/{id}")

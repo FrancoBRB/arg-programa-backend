@@ -14,11 +14,14 @@ public class Profile {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "email", nullable = false)
-    private String email;
+    @Column(name = "cellphone", nullable = false)
+    private String cellphone;
 
-    @Column(name = "password", nullable = false)
-    private String password;
+    @Column(name = "github", nullable = false)
+    private String github;
+
+    @Column(name = "linkedin", nullable = false)
+    private String linkedin;
 
     @Column(name = "about", nullable = false, length = 1500)
     private String about;
@@ -44,9 +47,10 @@ public class Profile {
 
     public Profile() {}
 
-    public Profile(String email, String password, String about, String photo) {
-        this.email = email;
-        this.password = password;
+    public Profile(String cellphone, String github, String linkedin, String about, String photo) {
+        this.cellphone = cellphone;
+        this.github = github;
+        this.linkedin = linkedin;
         this.about = about;
         this.photo = photo;
     }
@@ -57,22 +61,6 @@ public class Profile {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getAbout() {
@@ -91,4 +79,27 @@ public class Profile {
         this.photo = photo;
     }
 
+    public String getCellphone() {
+        return cellphone;
+    }
+
+    public void setCellphone(String cellphone) {
+        this.cellphone = cellphone;
+    }
+
+    public String getGithub() {
+        return github;
+    }
+
+    public void setGithub(String github) {
+        this.github = github;
+    }
+
+    public String getLinkedin() {
+        return linkedin;
+    }
+
+    public void setLinkedin(String linkedin) {
+        this.linkedin = linkedin;
+    }
 }
